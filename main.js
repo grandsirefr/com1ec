@@ -1,6 +1,6 @@
 var button=document.querySelector('button');
 var map;
-
+var bounds = new google.maps.LatLngBounds();
 
 
 
