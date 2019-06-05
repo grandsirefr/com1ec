@@ -1,18 +1,18 @@
 
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  /*map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: new google.maps.LatLng(48.8534,2.3488),
     mapTypeId: 'terrain'
-  });
+  });*/
 
   
   var script = document.createElement('script');
 
   
   document.getElementsByTagName('head')[0].appendChild(script);
-  
+   
 }
 
 
@@ -34,7 +34,8 @@ function placedMarq(coordun,coorddeux,utilisateur){
            strokeColor : "red"},
     map: map});
   }
-
+  
+ 
   console.log(marker);
   /*var mypoints=new google.maps.LatLng(coordun, coorddeux);
   console.log(mypoints);
