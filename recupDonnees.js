@@ -66,7 +66,6 @@ function onEventPlacedMarker(event){
     var coorddeux=event.detail.coordgps[0];
     var utilisateur=1;
     placedMarq(coordun,coorddeux,utilisateur);
-    map.fitBounds(bounds);
     
 }
 
