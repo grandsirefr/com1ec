@@ -1,10 +1,5 @@
 var button=document.querySelector('button');
-var map= new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: new google.maps.LatLng(48.8534,2.3488),
-    mapTypeId: 'terrain'
-  });
-
+var map;
 
 
 
