@@ -31,3 +31,19 @@ body{
 .hide{
     display: none;
 }
+.information{
+    height: 30%;
+    
+}
+#list{
+    display: flex;
+    flex-wrap: wrap;
+}
+#list>li{
+    width: 30%;
+    margin: 1%;
+    border: 1px solid white;
+}
+li{
+    list-style: none;
+}

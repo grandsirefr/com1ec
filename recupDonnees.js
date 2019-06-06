@@ -58,13 +58,17 @@ function browseObject(data){
         //console.log(coordun);
         //console.log(coorddeux);
     }
-   map.fitBounds(bounds);
+   
 }
 // fonction pour afficher le marqueur ou l'utilisateur se trouve
 function onEventPlacedMarker(event){
+    var utilisateur=1;
     var coordun=event.detail.coordgps[1];
     var coorddeux=event.detail.coordgps[0];
-    var utilisateur=1;
+    
+    map.setCenter(new google.maps.LatLng(coordun,coorddeux));
+    
+    
     placedMarq(coordun,coorddeux,utilisateur);
     
 }
