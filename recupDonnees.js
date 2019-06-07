@@ -8,7 +8,7 @@ function getData(coordun,coorddeux){
     borneElecAjax='https://opendata.paris.fr/api/records/1.0/search/?dataset=bornes-de-recharge-pour-vehicules-electriques&rows=130&facet=adresse_cp&facet=adresse_ville&facet=reseau&facet=tarif_general&facet=tarif_autopartage&facet=paiement&facet=puissance_pdc_kw&facet=type_connecteur_pdc&facet=type_courant_pdc&refine.reseau=Belib%27&geofilter.distance='+coordun+'%2C'+coorddeux+'%2C1500';
     
     $.get(borneElecAjax,function(data){
-    //console.log(data);
+    console.log(data);
     browseObject(data);
     });
 }
@@ -39,25 +39,32 @@ function getAdress(){
     });
     
 }
-//fontcion pour parcourir l'objet data et afficher les marqueur de borne electrique
+//fonction pour parcourir l'objet data et afficher les marqueur de borne electrique
 function browseObject(data){
-    var lenght= data.records.length;
+    var infos =trieData(data);
+    var lenght= infos.length;
     var coordun;
     var coorddeux;
-    var infos;
+    
     var utilisateur=0;
-    console.log(lenght);
+    console.log(infos);
     console.log(data);
+    //var dataTrier=trieData(data);
+    //console.log(lenght);
     for(var i=0; i < lenght; i++){
-        coordun=data.records[i].geometry.coordinates[1];
-        coorddeux=data.records[i].geometry.coordinates[0];
-        infos=data.records[i].fields;
+        coordun=infos[i].long;
+        coorddeux=infos[i].lat;
+        //infos=data.records[i].fields;
         placedMarq(coordun,coorddeux,utilisateur);
-        showElectricBorn(infos);
+        console.log(i);
+        showElectricBorn(infos[i]);
+        
         
         //console.log(coordun);
         //console.log(coorddeux);
     }
+
+    
    
 }
 // fonction pour afficher le marqueur ou l'utilisateur se trouve
@@ -65,7 +72,10 @@ function onEventPlacedMarker(event){
     var utilisateur=1;
     var coordun=event.detail.coordgps[1];
     var coorddeux=event.detail.coordgps[0];
-    
+    console.log(tabMarker);
+    if(tabMarker.length != 0){
+        deleteMarq(tabMarker);
+    }
     map.setCenter(new google.maps.LatLng(coordun,coorddeux));
     
     
