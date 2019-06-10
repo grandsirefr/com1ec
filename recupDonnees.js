@@ -45,12 +45,14 @@ function browseObject(data){
     var lenght= infos.length;
     var coordun;
     var coorddeux;
+    var ul= document.getElementById("list");
     
     var utilisateur=0;
     console.log(infos);
     console.log(data);
     //var dataTrier=trieData(data);
     //console.log(lenght);
+    ul.innerHTML="";
     for(var i=0; i < lenght; i++){
         coordun=infos[i].long;
         coorddeux=infos[i].lat;
